@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BOT DYREXYY | BY ADY HANSOME</title>
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0a1f2e 0%, #0c2b3f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Container utama tema biru coding */
+        .glass-card {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(10, 35, 55, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 3rem;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 200, 255, 0.2);
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 180, 255, 0.4);
+        }
+
+        /* animasi garis tepi biru neon */
+        .glass-card:hover {
+            box-shadow: 0 30px 50px rgba(0, 150, 255, 0.2), 0 0 0 2px #00a6ff80;
+        }
+
+        /* header animasi teks + keyboard delete effect */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .animated-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            display: inline-block;
+            border-right: 3px solid #00e0ff;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-right: 8px;
+            font-family: 'Courier New', 'Fira Code', monospace;
+            text-shadow: 0 0 5px #00a6ff50;
+        }
+
+        /* wrapper untuk efek keyboard */
+        .typewriter-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            background: rgba(0, 20, 40, 0.6);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            width: fit-content;
+            margin: 0 auto;
+            backdrop-filter: blur(4px);
+            border: 1px solid #00a6ff30;
+        }
+
+        .static-prefix {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #bbf0ff;
+            font-family: monospace;
+        }
+
+        #dynamicText {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #c0f2ff, #3b9eff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: 'Courier New', monospace;
+            min-width: 240px;
+            text-align: left;
+        }
+
+        /* banner video (support catbox) */
+        .banner-video {
+            background: #02121e;
+            border-radius: 2rem;
+            margin: 2rem 0;
+            overflow: hidden;
+            border: 1px solid #2c7da0;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .banner-video:hover {
+            transform: scale(1.01);
+            border-color: #00bbff;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: #000;
+        }
+
+        .video-container video, 
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+        }
+
+        .video-caption {
+            background: #021e2c;
+            padding: 0.8rem;
+            text-align: center;
+            color: #7fc9ff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-top: 1px solid #00a6ff40;
+        }
+
+        /* Tombol WhatsApp utama */
+        .wa-button-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .btn-wa {
+            background: linear-gradient(95deg, #075e54, #128c7e);
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+            border: 1px solid #25d36680;
+            letter-spacing: 1px;
+        }
+
+        .btn-wa i {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(95deg, #0a6b5c, #1daa96);
+            box-shadow: 0 18px 30px rgba(0, 200, 150, 0.4);
+            border-color: #25ffb0;
+        }
+
+        /* Sosial media links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .social-card {
+            background: rgba(0, 30, 50, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 1.6rem;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border: 1px solid #1098d0;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .social-card i {
+            font-size: 1.8rem;
+        }
+
+        .social-card span {
+            font-size: 1rem;
+        }
+
+        .social-card.tiktok:hover {
+            background: #010101cc;
+            border-color: #ff0050;
+            box-shadow: 0 0 12px #ff0050a0;
+        }
+        .social-card.instagram:hover {
+            background: #d6297640;
+            border-color: #f56040;
+            box-shadow: 0 0 12px #f77737a0;
+        }
+        .social-card.telegram:hover {
+            background: #0088cc40;
+            border-color: #29a9ff;
+            box-shadow: 0 0 12px #2ea6ffa0;
+        }
+
+        /* info tambahan */
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #5f9fc0;
+            border-top: 1px dashed #2c7da0;
+            padding-top: 1.2rem;
+        }
+
+        /* responsive */
+        @media (max-width: 650px) {
+            .glass-card {
+                padding: 1rem;
+            }
+            .animated-title, #dynamicText, .static-prefix {
+                font-size: 1.2rem;
+            }
+            .static-prefix {
+                font-size: 1.2rem;
+            }
+            .typewriter-wrapper {
+                padding: 0.5rem 1rem;
+            }
+            .btn-wa {
+                font-size: 1.2rem;
+                padding: 0.7rem 1.6rem;
+            }
+            .social-card {
+                padding: 0.5rem 1.2rem;
+            }
+            .social-card i {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* efek keyboard menghapus huruf diatur dengan JS */
+        .code-badge {
+            display: inline-block;
+            background: #00273e;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            color: #5bc0ff;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-card">
+    <div class="hero">
+        <div class="code-badge">
+            <i class="fas fa-terminal"></i> BOT FRAMEWORK v.1 | BLUE CODE THEME
+        </div>
+        <div class="typewriter-wrapper">
+            <span class="static-prefix">&gt; </span>
+            <div id="dynamicText"></div>
+            <span class="static-prefix" style="font-size:1rem;">&nbsp;_</span>
+        </div>
+        <div style="margin-top: 12px; font-size:0.8rem; color:#56bdff;">
+            <i class="fas fa-keyboard"></i> DESIGN BY ADY HANSOME 
+        </div>
+    </div>
+
+    <!-- BANNER VIDEO: support link catbox (mp4 langsung atau embed) -->
+    <div class="banner-video">
+        <div class="video-container" id="videoContainer">
+            <!-- default video dari catbox (contoh link video kucing / demo) 
+                 Bisa diganti dengan link mp4 catbox apapun. 
+                 Gunakan video mp4 agar native support -->
+            <video id="catboxVideo" controls autoplay muted loop playsinline poster="https://placehold.co/1280x720/022b3a/00aaff?text=DYREXYY+BANNER">
+                <source src="https://files.catbox.moe/7v0d0c.mp4" type="video/mp4">
+                Your browser does not support the video tag. Silakan update browser.
+            </video>
+        </div>
+        <div class="video-caption">
+            <i class="fas fa-video"></i>  BANNER BY ADY HANSOME 
+        </div>
+    </div>
+
+    <!-- TOMBOL WHATSAPP (mengarah ke nomor) -->
+    <div class="wa-button-wrapper">
+        <a href="https://wa.me/628976628403?text=Halo%20Bang%20Ady%20Hansome%2C%20saya%20tertarik%20dengan%20BOT%20DYREXYY" class="btn-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i> CHAT BOT DYREXYY 
+        </a>
+    </div>
+
+    <!-- KETERANGAN AKUN TIKTOK, INSTAGRAM, TELEGRAM -->
+    <div class="social-links">
+        <a href="https://www.tiktok.com/@adi4meeee?_r=1&_t=ZS-95WwGjlD7Oq" class="social-card tiktok" target="_blank">
+            <i class="fab fa-tiktok"></i> <span>@adi4meeee</span>
+        </a>
+        <a href="https://www.instagram.com/vrgo_dyyrexyy?igsh=MWU4ZjZyZGIwbzF0MQ==" class="social-card instagram" target="_blank">
+            <i class="fab fa-instagram"></i> <span>@vrgo_dyyrexyy</span>
+        </a>
+        <a href="https://t.me/Dyrexyyyy17" class="social-card telegram" target="_blank">
+            <i class="fab fa-telegram-plane"></i> <span>@Dyrexyyyy17</span>
+        </a>
+    </div>
+    <div class="footer-note">
+        <i class="fas fa-robot"></i> BOT DYREXYY · AUTOMATION SYSTEM · BY ADY HANSOME
+    </div>
+</div>
+
+<script>
+    // ---------- ANIMASI KEYBOARD YANG MENGHAPUS HURUF (type & delete looping) ----------
+    // Teks utama yang akan diketik dan dihapus : "BOT DYREXYY BY ADY HANSOME"
+    // namun untuk lebih dinamis kita bisa memecah menjadi beberapa frase? 
+    // sesuai permintaan: teks "BOT DYREXYYYY BY ADY HANSOME" (dengan ejaan DYREXYYYY? ada double Y? aslinya DYREXYY + Y? kita ikuti permintaan)
+    // teks utama: "BOT DYREXYYYY BY ADY HANSOME"
+    // Tetapi biar menarik, kita tampilkan full teks dan efek hapus-tulis dengan animasi.
+    
+    const fullText = "BOT DYREXYYYY BY ADY HANSOME";
+    const dynamicElement = document.getElementById("dynamicText");
+    
+    let currentIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 120;      // kecepatan mengetik (ms)
+    let deletingSpeed = 60;     // kecepatan menghapus (ms)
+    let pauseBetween = 1800;     // jeda setelah teks lengkap sebelum menghapus
+    let pauseAfterDelete = 600;   // jeda setelah teks kosong sebelum mengetik ulang
+    
+    let timeoutId = null;
+    
+    function typeEffect() {
+        if (!dynamicElement) return;
+        
+        // Teks yang sedang ditampilkan saat ini
+        const currentText = dynamicElement.innerText;
+        
+        if (!isDeleting) {
+            // Mode Mengetik
+            if (currentIndex <= fullText.length) {
+                dynamicElement.innerText = fullText.substring(0, currentIndex);
+                currentIndex++;
+                timeoutId = setTimeout(typeEffect, typingSpeed);
+            } else {
+                // Teks selesai diketik -> pause lalu hapus
+                isDeleting = true;
+                timeoutId = setTimeout(typeEffect, pauseBetween);
+            }
+        } else {
+            // Mode Menghapus (menghapus huruf satu per satu)
+            if (currentIndex > 0) {
+                dynamicElement.innerText = fullText.substring(0, currentIndex - 1);
+                currentIndex--;
+                timeoutId = setTimeout(typeEffect, deletingSpeed);
+            } else {
+                // Teks sudah kosong, berhenti hapus, kembali ke mode mengetik
+                isDeleting = false;
+                timeoutId = setTimeout(typeEffect, pauseAfterDelete);
+            }
+        }
+    }
+    
+    // mulai animasi
+    typeEffect();
+    
+    // optional: jika pengguna ingin merubah link video catbox secara dinamis, kita bisa menambahkan demo sederhana?
+    // namun sudah support catbox secara native (tag video support .mp4 dari catbox.moe)
+    // Juga tambahkan fallback jika video gagal, tetap bisa ganti link dengan mudah
+    
+    // Karena ada permintaan "banner yang support video link catbox" artinya bisa menerima URL dari catbox.
+    // Kita buat fungsi agar admin dapat mengubah video dengan mudah via console, atau kita tambahkan tombol opsional?
+    // Lebih baik kita sediakan secara langsung dengan contoh video catbox, user bisa ganti attribute src di elemen source.
+    // Untuk kemudahan, tambahkan sedikit fitur di console: setCatboxVideo(url)
+    window.setCatboxVideo = function(videoUrl) {
+        const videoElem = document.getElementById('catboxVideo');
+        if (videoElem) {
+            // Cari source, ganti src-nya
+            const sourceElem = videoElem.querySelector('source');
+            if (sourceElem) {
+                sourceElem.src = videoUrl;
+                videoElem.load();
+                console.log(`✅ Video catbox diupdate: ${videoUrl}`);
+            } else {
+                videoElem.src = videoUrl;
+                videoElem.load();
+            }
+        } else {
+            console.warn("Elemen video tidak ditemukan");
+        }
+    };
+    
+    // Contoh jika ingin mengganti dengan link catbox lain : 
+    // setCatboxVideo("https://files.catbox.moe/xxxxxx.mp4");
+    // Info ke user: melalui console bisa ganti banner video.
+    
+    // Event listener tambahan untuk memastikan autoplay bekerja dengan muted (sudah autoplay muted loop)
+    // Jika browser memblokir autoplay karena belum interaksi, tapi kita tambahkan play() on load jika perlu.
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('catboxVideo');
+        if (video) {
+            // mencoba play agar autoplay lebih responsif, karena sudah muted biasanya diizinkan
+            video.play().catch(e => console.log("Autoplay dicegah oleh browser, user perlu interaksi", e));
+        }
+    });
+    
+    // optional: perbaiki agar tombol WhatsApp mengarah ke nomor yang valid, nomor sementara 6281234567890
+    // tapi biar mudah diedit, bisa ganti nomor di href. atau kita tambahkan variable global ganti nomor
+    window.changeWhatsAppNumber = function(phoneNumber, customMessage = "Halo%20Bang%20Ady%20Hansome%2C%20saya%20tertarik%20dengan%20BOT%20DYREXYY") {
+        const waBtn = document.querySelector('.btn-wa');
+        if (waBtn) {
+            let formattedNumber = phoneNumber.replace(/\D/g, '');
+            if (!formattedNumber.startsWith('62') && !formattedNumber.startsWith('0')) {
+                formattedNumber = '62' + formattedNumber;
+            }
+            if (formattedNumber.startsWith('0')) {
+                formattedNumber = '62' + formattedNumber.substring(1);
+            }
+            waBtn.href = `https://wa.me/${formattedNumber}?text=${customMessage}`;
+            console.log(`Nomor WhatsApp diupdate ke: +${formattedNumber}`);
+        }
+    };
+    
+    // Sebagai contoh, user bisa ganti nomor langsung via console: changeWhatsAppNumber('628123456789')
+    // Untuk saat ini default nomor 6281234567890 (contoh)
+    
+    // Inisialisasi tooltip atau efek tambahan: style coding biru.
+    console.log("DYREXYY BOT by Ady Hansome |DESIGN BY | ADY HANSOME support");
+</script>
+
+<!-- Penjelasan tambahan: 
+     - Banner video menggunakan tag <video> dengan source dari catbox.moe (contoh file .mp4). 
+       Link catbox asli "https://files.catbox.moe/7v0d0c.mp4" adalah contoh video kucing yang legal, bisa diganti.
+     - Tombol WhatsApp mengarah ke nomor (default +62 812-3456-7890), bisa diubah via atribut href atau fungsi JS.
+     - Terdapat animasi keyboard (typing + deleting) untuk teks "BOT DYREXYYYY BY ADY HANSOME".
+     - Semua elemen sosial media (TikTok, Instagram, Telegram) menggunakan ikon dan link placeholder, bisa diganti dengan username asli.
+     - Tema warna biru dengan background gradasi, efek neon, dan nuansa coding.
+     - Halaman responsif dan modern.
+-->
+</body>
+</html>
